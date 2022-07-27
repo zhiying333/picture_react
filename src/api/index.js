@@ -5,3 +5,6 @@ export const reqRegister = (username, password) => ajax.post('/api/register', {u
 
 //用户登录接口
 export const reqLogin = (username, password) => ajax.post('/api/login', {username, password});
+
+//获取照片分类
+export const reqGetCates = () => ajax('/picture/cates');
