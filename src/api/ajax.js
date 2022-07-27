@@ -6,7 +6,7 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(config => {
-  console.log(config);
+  // console.log(config);
   let token = localStorage.getItem('token_key');
   if (config.url.includes('picture')) {
     if (token) {

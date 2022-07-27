@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Menu, message } from 'antd'
+import { Layout, Menu, message, Avatar, Image } from 'antd'
 import { PictureFilled } from '@ant-design/icons'
 
 import './index.css';
@@ -46,7 +46,14 @@ export default function Msite() {
     <div>
       <Layout>
         <Header>
-          
+          <div className="header">
+            <h1 className='logo-wrap'><a>
+              <img src="" alt="logo图" />
+            </a></h1>
+            <div className="user-wrap">
+              <Avatar style={{width: 56, height: 56}} src={<Image src="https://joeschmoe.io/api/v1/random" style={{ width: 56 }} />} />
+            </div>
+          </div>
         </Header>
         <Layout>
           <Sider>
