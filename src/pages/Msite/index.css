@@ -2,6 +2,10 @@
   background: skyblue;
 }
 
+.ant-popover {
+  top: 36px !important;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -11,7 +15,28 @@
 }
 
 .header .user-wrap {
-  width: 56px;
+  display: flex;
+  /* width: 56px; */
   height: 56px;
   overflow: hidden;
+}
+
+.user-wrap .user-info {
+  display: flex;
+  margin-left: 10px;
+  color: #FFFFFF;
+}
+
+.user-info .username {
+  margin: 0 15px;
+}
+
+.user-info .logout {
+  margin: 0 10px;
+  color: skyblue;
+  cursor: pointer;
+}
+
+.edit-p {
+  cursor: pointer;
 }

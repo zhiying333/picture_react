@@ -29,11 +29,11 @@ function Login (props) {
       alert('亲，用户名或密码不能为空哦！')
     };
 
-    const usernameReg = /^(?!0-9)[\u4e00-\u9fa5_a-zA-Z0-9]{2,16}/;
+    const usernameReg = /^(?!\w)[\u4e00-\u9fa5_a-zA-Z0-9]{2,16}/;
     const passwordReg = /[A-Za-z0-9]{4,6}/;
 
     if (!usernameReg.test(username)) {
-      alert('用户名只能以中英文，数字，下划线组成，不能以数字开头！')
+      alert('用户名只能以中英文，数字，下划线组成，不能以数字开头,长度2到16位！')
     }
 
     if (!passwordReg.test(password)) {
