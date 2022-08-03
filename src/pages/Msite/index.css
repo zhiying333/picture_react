@@ -40,3 +40,25 @@
 .edit-p {
   cursor: pointer;
 }
+
+.ant-menu-item {
+  height: 50px !important;
+}
+
+.ant-menu-item .ant-menu-title-content {
+  height: 50px;
+  line-height: 50px;
+}
+
+.ant-layout-content .ant-image {
+  margin: 15px 20px;
+}
+
+/* .ant-layout-content .ant-image-img {
+  width: 252px;
+  height: 252px;
+} */
+
+.ant-layout-content .ant-upload-picture-card-wrapper {
+  padding: 0 20px;
+}

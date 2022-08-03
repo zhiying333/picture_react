@@ -12,7 +12,16 @@ import {
   Upload,
   Input
 } from 'antd'
-import { PictureFilled, CaretDownFilled, PlusOutlined, UserOutlined, LoadingOutlined } from '@ant-design/icons'
+import { 
+  PictureFilled, 
+  CaretDownFilled, 
+  PlusOutlined, 
+  UserOutlined, 
+  LoadingOutlined,
+  PlusCircleOutlined
+} from '@ant-design/icons';
+
+import Pagination from '../../components/Pagination';
 
 import './index.css';
 import { reqGetCates, reqGetUserInfo, reqUpdateUsername, reqUploadPicture } from '../../api';
@@ -274,7 +283,8 @@ function Msite() {
   return (
     <div>
       <Layout>
-        <Header>
+        <Header
+        >
           <div className="header">
             <h1 className='logo-wrap'><a>
               <img src="" alt="logo图" />
@@ -285,12 +295,11 @@ function Msite() {
                 <Avatar
                   style={{width: 56, height: 56}}
                   src={<Image src={userInfo.avatar ? userInfo.avatar : 'https://joeschmoe.io/api/v1/random'}
-                  style={{ width: 56 }} />}
+                  style={{ width: 56, height: 56 }} />}
                 />
                 <div className="user-info">
                   <div className="username">{userInfo.username ? userInfo.username : '快来设置一个美丽的昵称吧'}</div>
                   <Popover placement="bottom" content={content} trigger="click" arrowPointAtCenter visible={popoverVisible}>
-                    {/* <Button>Bottom</Button> */}
                     <CaretDownFilled style={{ fontSize: '16px', lineHeight: '64px' }} onClick={showPopoverHandle}/>
                   </Popover>
                   <div className="logout" onClick={logoutHandler}>退出登录</div>
@@ -347,17 +356,30 @@ function Msite() {
               /> : <div>获取分类中</div>
             }
           </Sider>
-          <Content style={{ padding: '10px' }}>
+          <Content style={{height: 'calc(100vh - 64px)', overflow: 'auto'}}>
+            <Image.PreviewGroup>
+              {
+                [1,2,3,4,5,6,7,8,9,10].map((item, index) => (
+                  <Image
+                    key={item}
+                    width={220}
+                    height={210}
+                    src="http://127.0.0.1:3030/upload/images/m.jpg"
+                  />
+                ))
+              }
+            </Image.PreviewGroup>
             <Upload
               action="http://127.0.0.1:3030/picture/upload"
               listType="picture-card"
               headers={{ ContentType: 'multipart/form-data', Authorization: localStorage.getItem('token_key')}}
               fileList={fileList}
               name="img"
+              style={{marginTop: '15px', width: '150px', height: '150px'}}
               onPreview={handlePreview}
               onChange={handlePictureChange}
             >
-              {fileList.length >= 2 ? null : uploadButton}
+              {fileList.length >= 3 ? null : uploadButton}
             </Upload>
             <Modal visible={previewVisible} title={previewTitle} footer={null} onCancel={handleCancel}>
               <img
@@ -368,6 +390,7 @@ function Msite() {
                 src={previewImage}
               />
             </Modal>
+            <Pagination />
           </Content>
         </Layout>
       </Layout>
